@@ -1,0 +1,81 @@
+/* Container for both the image and form */
+.login-container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: flex-start; /* Move contents towards the left */
+    padding-left: 100px; /* Add padding to push it slightly more to the left */
+    background-color: #f7f7f7;
+}
+
+/* Image container */
+.login-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-image img {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Adjust size as needed */
+}
+
+/* Form container */
+.login-box {
+    flex: 1;
+    max-width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-right: 200px; /* Add margin to move the form slightly to the left */
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-box button:hover {
+    background-color: #45a049;
+}
+
+.login-box p {
+    margin-top: 20px;
+}
+
+/* Styling for the signup link */
+.signup-link {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.signup-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+}

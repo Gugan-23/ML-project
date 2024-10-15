@@ -1,0 +1,58 @@
+.home-container {
+    display: flex;
+    height: 100vh; /* Full height */
+    background-color: #181818; /* Slightly lighter dark background */
+    color: #ffffff; /* Light text color */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 320px; /* Increase the width of the sidebar */
+    background-color: #2c2c2c; /* Darker sidebar background */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.sidebar h3 {
+    color: #ffffff; /* White text for the header */
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar li a {
+    color: #bb86fc; /* Light purple for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar li a:hover {
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+/* Content area styling */
+.content {
+    flex: 1; /* Take up the remaining space */
+    padding: 20px; /* Add padding around the content */
+    background-color: #242424; /* Lighter dark background for content */
+}
+
+.content h1 {
+    color: #ffffff; /* White text for headings */
+}
+
+.content p {
+    color: #e0e0e0; /* Slightly lighter text for paragraphs */
+}
+
+/* Additional styling for better aesthetics */
+.content h1, .content p {
+    line-height: 1.5; /* Improve readability */
+}
