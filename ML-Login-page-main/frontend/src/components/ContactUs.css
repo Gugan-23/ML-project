@@ -1,0 +1,82 @@
+/* ContactUs.css */
+
+/* Global Styles for the Contact Us Component */
+.contact-us-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    padding: 40px; /* Padding around the container */
+    background-color: #eef2f3; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin: 20px; /* Margin around the component */
+    max-width: 600px; /* Maximum width for larger screens */
+    text-align: center; /* Center text */
+}
+
+/* Heading Styles */
+.contact-us-container h2 {
+    font-size: 30px; /* Large font size for the title */
+    color: #2c3e50; /* Dark blue color for the title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Stack form fields vertically */
+    width: 100%; /* Full width for form */
+}
+
+/* Input and Textarea Styles */
+.contact-form input,
+.contact-form textarea {
+    padding: 12px; /* Padding for input and textarea */
+    margin: 10px 0; /* Vertical margin for spacing */
+    border: 1px solid #bdc3c7; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+/* Focus Effect on Input and Textarea */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #3498db; /* Blue border on focus */
+    outline: none; /* Remove outline */
+}
+
+/* Submit Button Styles */
+.contact-form button {
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 18px; /* Font size */
+    color: #fff; /* White text color */
+    background-color: #3498db; /* Blue background */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Button Hover Effect */
+.contact-form button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-us-container {
+        padding: 20px; /* Less padding on smaller screens */
+    }
+
+    .contact-us-container h2 {
+        font-size: 24px; /* Smaller title font size */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px; /* Smaller font size */
+    }
+}

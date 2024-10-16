@@ -1,0 +1,48 @@
+/* EwastePodumIdam.css */
+
+/* Main Content Styles */
+.content {
+    padding: 40px; /* Padding around the main content */
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 800px; /* Maximum width for larger screens */
+    margin: 20px auto; /* Center the content */
+}
+
+/* Button Container Styles */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Space out the buttons */
+    margin-bottom: 20px; /* Space below the button container */
+}
+
+/* Button Styles */
+.button-container button {
+    flex: 1; /* Make buttons take equal space */
+    margin: 0 10px; /* Horizontal margin between buttons */
+    padding: 15px; /* Padding for buttons */
+    font-size: 16px; /* Font size */
+    color: #fff; /* White text color */
+    background-color: #3498db; /* Blue background */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Button Hover Effect */
+.button-container button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        padding: 20px; /* Less padding on smaller screens */
+    }
+
+    .button-container button {
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+}

@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <aside className="sidebar">
-                <h3>Dashboard</h3>
+                <h3>Home</h3>
                 <ul>
                     <li><Link to="aboutus">About Us</Link></li>
                     <li><Link to="contactus">Contact Us</Link></li>

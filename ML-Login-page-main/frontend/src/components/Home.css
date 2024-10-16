@@ -1,58 +1,91 @@
+/* Home.css */
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Container for the entire home component */
 .home-container {
     display: flex;
     height: 100vh; /* Full height */
-    background-color: #181818; /* Slightly lighter dark background */
-    color: #ffffff; /* Light text color */
 }
 
-/* Sidebar styling */
+/* Sidebar styles */
 .sidebar {
-    width: 320px; /* Increase the width of the sidebar */
-    background-color: #2c2c2c; /* Darker sidebar background */
+    width: 250px; /* Width of sidebar */
+    background-color: #2c3e50; /* Dark background */
+    color: #ecf0f1; /* Light text color */
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .sidebar h3 {
-    color: #ffffff; /* White text for the header */
-    margin-bottom: 20px;
+    margin-top: 0;
+    font-size: 24px;
+    text-align: center;
 }
 
 .sidebar ul {
-    list-style: none;
+    list-style: none; /* Remove bullets */
     padding: 0;
 }
 
 .sidebar li {
-    margin: 15px 0;
+    margin: 15px 0; /* Space between items */
 }
 
 .sidebar li a {
-    color: #bb86fc; /* Light purple for links */
-    text-decoration: none;
-    font-weight: bold;
+    color: #ecf0f1; /* Link color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px;
+    display: block; /* Block display for full clickable area */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
 .sidebar li a:hover {
-    text-decoration: underline; /* Underline effect on hover */
+    background-color: #34495e; /* Highlight on hover */
 }
 
-/* Content area styling */
+/* Main content styles */
 .content {
-    flex: 1; /* Take up the remaining space */
-    padding: 20px; /* Add padding around the content */
-    background-color: #242424; /* Lighter dark background for content */
+    flex: 1; /* Take remaining space */
+    padding: 20px;
+    overflow-y: auto; /* Scroll if content overflows */
+    background-color: #ecf0f1; /* Light background */
 }
 
-.content h1 {
-    color: #ffffff; /* White text for headings */
+/* Heading styles */
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
-.content p {
-    color: #e0e0e0; /* Slightly lighter text for paragraphs */
+/* Component styling for a cleaner look */
+.content > * {
+    margin-bottom: 20px; /* Space between components */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #ffffff; /* White background for components */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
-/* Additional styling for better aesthetics */
-.content h1, .content p {
-    line-height: 1.5; /* Improve readability */
+/* Responsive design */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+
+    .sidebar {
+        width: 100%; /* Full width */
+        box-shadow: none; /* Remove shadow */
+    }
+
+    .content {
+        padding: 10px; /* Less padding */
+    }
 }

@@ -2,7 +2,9 @@ import React from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Working from './Working';
 import UploadForm from './UploadForm'; // Ensure this is correct
-import Notworking from './Notworking'
+import Notworking from './Notworking';
+import './EwastePodumIdam.css'; // Import the CSS file
+
 const EwastePodumIdam = () => {
     const navigate = useNavigate();
 

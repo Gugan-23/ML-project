@@ -17,9 +17,9 @@ const Purchase = () => {
         },
         {
             id: 3,
-            name: 'Sony WH-1000XM4 Headphones',
+            name: 'boAt WH-1000XM4 Headphones',
             price: 349.99,
-            imageUrl: 'https://www.sony.com/image/91b49b7c6631b0a1649f5164e899f28f?fmt=pjpeg&wid=330&hei=330',
+            imageUrl: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQEHW3r9zmypvPZLn99MfCcn5RtH1l68P4YFXSBINUQufdCEz60BtEfJsAkBdl41BX7KiwFJSrpKPCU75NXOX-_CKWg1Wh2WqA71fquo173Q59RP1WFYznXHw&usqp=CAc',
         },
     ];
 

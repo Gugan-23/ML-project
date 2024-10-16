@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import './Notworking.css'; // Adjust the path if necessary
 
 const Notworking = () => {
     const videoRef = useRef(null);

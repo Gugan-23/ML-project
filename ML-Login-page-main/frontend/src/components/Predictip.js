@@ -15,7 +15,7 @@ const Predictip = () => {
 
     return (
         <div>
-            <h2>Hi</h2>
+            <h2>Help</h2>
             <button onClick={handleButtonClick}>Open Tkinter Window</button>
         </div>
     );

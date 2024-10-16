@@ -1,0 +1,94 @@
+/* UploadForm.css */
+
+/* Main Container Styles */
+.upload-form-container {
+    background-color: #ffffff; /* White background for form */
+    padding: 40px; /* Padding around the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 600px; /* Maximum width for larger screens */
+    margin: 20px auto; /* Center the form */
+}
+
+/* Heading Styles */
+.upload-form-container h2 {
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 24px; /* Heading size */
+    color: #333; /* Dark gray color for text */
+}
+
+/* Label Styles */
+label {
+    display: block; /* Block display for labels */
+    margin-bottom: 8px; /* Space below labels */
+    font-weight: bold; /* Bold font for labels */
+    color: #555; /* Medium gray color for labels */
+}
+
+/* Input and Textarea Styles */
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below inputs */
+    transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+/* Input Focus Styles */
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #3498db; /* Blue border on focus */
+    outline: none; /* Remove outline */
+}
+
+/* Button Styles */
+button {
+    background-color: #3498db; /* Blue background */
+    color: #fff; /* White text */
+    padding: 10px 15px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Button text size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Message Styles */
+p.message {
+    color: #e74c3c; /* Red color for error messages */
+    margin-top: 10px; /* Space above message */
+}
+
+/* Uploaded Data Styles */
+.uploaded-data {
+    margin-top: 30px; /* Space above uploaded data */
+    padding: 20px; /* Padding for uploaded data section */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+.uploaded-data img {
+    max-width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for images */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .upload-form-container {
+        padding: 20px; /* Less padding on smaller screens */
+    }
+    
+    button {
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+}

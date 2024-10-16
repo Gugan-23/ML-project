@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import './UploadForm.css'; // Import the CSS file
 const UploadForm = () => {
     const [applianceType, setApplianceType] = useState('');
     const [details, setDetails] = useState('');
