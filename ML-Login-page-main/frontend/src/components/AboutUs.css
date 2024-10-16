@@ -1,65 +1,15 @@
-
 /* AboutUs.css */
 
-/* Global Styles for the About Us Component */
 .about-us-container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    padding: 40px; /* Padding around the container */
-    background-color: #f0f8ff; /* Light blue background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    margin: 20px; /* Margin around the component */
-    max-width: 800px; /* Maximum width for larger screens */
-    text-align: center; /* Center text */
+    padding: 20px;
+    text-align: center; /* Center align the text */
 }
 
-/* Heading Styles */
-.about-us-container h1 {
-    font-size: 36px; /* Large font size for the title */
-    color: #2c3e50; /* Dark blue color for the title */
-    margin-bottom: 20px; /* Space below the title */
-}
-
-/* Paragraph Styles */
-.about-us-container p {
-    font-size: 18px; /* Medium font size for paragraphs */
-    color: #34495e; /* Slightly lighter color for text */
-    line-height: 1.6; /* Increase line height for readability */
-    margin: 10px 0; /* Vertical margin for spacing */
-}
-
-/* Button Styles */
-.about-us-button {
-    margin-top: 20px; /* Space above the button */
-    padding: 10px 20px; /* Padding for the button */
-    font-size: 18px; /* Font size */
-    color: #fff; /* White text color */
-    background-color: #3498db; /* Blue background */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-/* Button Hover Effect */
-.about-us-button:hover {
-    background-color: #2980b9; /* Darker blue on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-us-container {
-        padding: 20px; /* Less padding on smaller screens */
-    }
-
-    .about-us-container h1 {
-        font-size: 28px; /* Smaller title font size */
-    }
-
-    .about-us-container p {
-        font-size: 16px; /* Smaller paragraph font size */
-    }
+.movable-graph {
+    margin-top: 20px; /* Space between the text and the graph */
+    border: 1px solid #ccc; /* Optional: border for the graph */
+    border-radius: 8px; /* Optional: rounded corners */
+    padding: 10px; /* Optional: inner padding */
+    background-color: #f9f9f9; /* Optional: light background color */
+    cursor: move; /* Change the cursor to indicate the graph is movable */
 }

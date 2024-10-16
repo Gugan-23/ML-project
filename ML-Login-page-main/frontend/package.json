@@ -16,6 +16,7 @@
     "react-heatmap-grid": "^0.9.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
+    "recharts": "^2.13.0",
     "simple-statistics": "^7.8.5",
     "web-vitals": "^2.1.4"
   },
