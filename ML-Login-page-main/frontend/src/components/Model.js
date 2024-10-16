@@ -84,6 +84,7 @@ const Model = () => {
                         <li>Platinum: {predictions['Platinum (g)'].toFixed(2)} g</li>
                         <li>Nickel: {predictions['Nickel (g)'].toFixed(2)} g</li>
                         <li>Lithium: {predictions['Lithium (g)'].toFixed(2)} g</li>
+                        <li>Price :{predictions['Estimated Price (INR)'].toFixed(2)}</li>
                     </ul>
                 </div>
             )}

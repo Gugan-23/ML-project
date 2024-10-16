@@ -47,7 +47,8 @@ def predict():
             'Carbon (g)': prediction[0][3],
             'Platinum (g)': prediction[0][4],
             'Nickel (g)': prediction[0][5],
-            'Lithium (g)': prediction[0][6]
+            'Lithium (g)': prediction[0][6],
+            'Estimated Price (INR)' : prediction[0][7]
         }
         print(response)
         
@@ -110,6 +111,18 @@ def correlation():
     except Exception as e:
         print("Error:", str(e))  # Log the error for debugging
         return jsonify({'error': str(e)}), 500
+import threading
+import tkinter as tk
+def open_tkinter_window():
+    import multiple 
+
+@app.route('/open-window', methods=['GET'])
+def open_window():
+    import multiple 
+    # Open tkinter window in a separate thread
+    threading.Thread(target=open_tkinter_window).start()
+    return "Window opened"
+
 def calculate_correlation_matrix(data):
     # Calculate the correlation matrix, automatically handles NaN values using method='pearson'
     correlation = data.corr(method='pearson')
