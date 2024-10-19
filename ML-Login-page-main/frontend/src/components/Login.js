@@ -24,9 +24,11 @@ const Login = () => {
             const data = await response.json();
 
             if (response.ok) {
+                // Save the token to localStorage for later use
+                localStorage.setItem('authToken', data.token);
                 setMessage('Login successful! Redirecting to Home page...');
                 setTimeout(() => {
-                    navigate('/home');
+                    navigate('/home'); // Navigate to home after successful login
                 }, 2250);
             } else {
                 setMessage('Login failed: ' + (data.detail || 'Invalid Credentials!'));

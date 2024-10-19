@@ -4,23 +4,30 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, accuracy_score
+from flask import Flask, request, render_template, jsonify
+
+app = Flask(__name__)
 
 from forex_python.converter import CurrencyRates
 import numpy as np
 from flask import Flask, request, jsonify
 import requests
-app = Flask(__name__)
 
 def get_exchange_rates(base_currency):
     api_url = f"https://api.exchangerate-api.com/v4/latest/{base_currency}"
+    
     try:
         response = requests.get(api_url)
         if response.status_code == 200:
             return response.json().get('rates')
+        
         else:
+            
             print(f"Error fetching currency rates: {response.status_code}")
             return None
+        
     except Exception as e:
+        
         print(f"Error fetching currency rates: {e}")
         return None
 
@@ -169,7 +176,6 @@ def predict_product_type(er_specifications,display_size,data):
         full_process(er_specifications)
         return "Unknown"
         
-    
     if display_size < 7:
         return "Phone"
     elif 7 <= display_size < 15:
@@ -179,8 +185,8 @@ def predict_product_type(er_specifications,display_size,data):
     else:
         return "Unknown"
         
-        
         return 0
+
 def convert_GPU_to_numeric(gpu):
     if pd.isna(gpu):  # Check if the value is NaN
         return 0  # or any other appropriate value for NaN
@@ -199,7 +205,7 @@ def convert_GPU_to_numeric(gpu):
             return 5  
         elif 'NVIDIA' in gpu:
             return 6  
-    return 0  # Return 0 for any other case
+    return 0  
 
 X['GPU'] = X['GPU'].apply(convert_GPU_to_numeric)
 
@@ -255,7 +261,6 @@ def find_price(user_input, data):
 
 import tkinter as tk
 
-# Initial specifications dictionary
 er_specifications = {
     'brand': 'Samsung',
     'name': 'Airdopes 381 Sunburn Edition with up to 20 Hours Playtime',
@@ -267,7 +272,7 @@ er_specifications = {
     'ROM_type': 'SSD',
     'OS': 'Windows 11 OS',
     'GPU': 'Intel Integrated Iris Xe',
-    'display_size': 7,
+    'display_size': 17,
     'resolution_width': 1920,
     'resolution_height': 1080,
     'warranty': None,  # This will be ignored
@@ -294,80 +299,27 @@ def display_specifications():
         widget.destroy()
 
     for spec, value in er_specifications.items():
-        label = tk.Label(display_frame, text=f"{spec.replace('_', ' ').title()}: {value}")
-        label.pack(pady=2)
-
+        print()
+        
 # Function to update specified features
-def update_specifications():
-    # Update only name, brand, and display size
-    er_specifications['brand'] = brand_entry.get() or er_specifications['brand']  # Use existing value if empty
-    er_specifications['name'] = name_entry.get() or er_specifications['name']
-    try:
-        display_size = int(display_size_entry.get())
-        er_specifications['display_size'] = display_size
-    except ValueError:
-        pass  # If input is invalid, keep existing value
+def update_specifications(specifications):
+    
+    brand = input("Enter brand (leave blank to keep current): ")
+    name = input("Enter name (leave blank to keep current): ")
+    display_size = input("Enter display size (leave blank to keep current): ")
 
-    display_specifications()  # Refresh the displayed specifications
+    if brand:
+        specifications['brand'] = brand
+    if name:
+        specifications['name'] = name
+    if display_size:
+        try:
+            specifications['display_size'] = int(display_size)
+        except ValueError:
+            print("Invalid input for display size. Keeping the current value.")
 
-# Create the main window
-root = tk.Tk()
-root.title("Device Specifications")
-root.geometry("400x400")
-
-# Create a frame for the entries
-entry_frame = tk.Frame(root)
-entry_frame.pack(pady=10)
-
-# Create entry fields for the selected specifications
-tk.Label(entry_frame, text="Brand:").pack(anchor="w")
-brand_entry = tk.Entry(entry_frame)
-brand_entry.pack(fill="x", padx=10, pady=5)
-
-tk.Label(entry_frame, text="Name:").pack(anchor="w")
-name_entry = tk.Entry(entry_frame)
-name_entry.pack(fill="x", padx=10, pady=5)
-
-tk.Label(entry_frame, text="Display Size:").pack(anchor="w")
-display_size_entry = tk.Entry(entry_frame)
-display_size_entry.pack(fill="x", padx=10, pady=5)
-
-# Create a button to update specifications
-update_button = tk.Button(entry_frame, text="Update Specifications", command=update_specifications)
-update_button.pack(pady=10)
-
-# Create a frame for the scrollbar and canvas
-scrollable_frame = tk.Frame(root)
-scrollable_frame.pack(pady=10, fill="both", expand=True)
-
-# Create a canvas for scrolling
-canvas = tk.Canvas(scrollable_frame)
-scrollbar = tk.Scrollbar(scrollable_frame, orient="vertical", command=canvas.yview)
-display_frame = tk.Frame(canvas)
-
-# Configure the canvas
-canvas.create_window((0, 0), window=display_frame, anchor="nw")
-canvas.configure(yscrollcommand=scrollbar.set)
-
-# Pack the canvas and scrollbar
-canvas.pack(side="left", fill="both", expand=True)
-scrollbar.pack(side="right", fill="y")
-
-# Bind the configure event to update the scrollbar
-def configure_scroll_region(event):
-    canvas.configure(scrollregion=canvas.bbox("all"))
-
-display_frame.bind("<Configure>", configure_scroll_region)
-
-# Initial display of specifications
-display_specifications()
-
-# Run the application
-root.mainloop()
-
-# Call the function with user_input
+update_specifications(er_specifications)
 price = find_price(er_specifications, data)
-
 
 def get_brand_details(brand_name):
     # Load the dataset
@@ -394,6 +346,7 @@ def get_brand_details(brand_name):
     else:
         print("Dataset is empty.")
         return None
+
 if (er_specifications['brand']):
     infinix_details = get_brand_details(er_specifications['brand'])
 def predict_price(user_input):
@@ -425,11 +378,6 @@ def predict_price(user_input):
     return predicted_price[0]
 
 
-product_type = predict_product_type(er_specifications,er_specifications['display_size'],data)
-print(f"The predicted product type is: {product_type}")
-
-price = find_price(er_specifications,data)
-
 if price is not None:
     print(f"The price of the specified laptop is: ₹{price:.2f}")
     rates = get_exchange_rates("INR")
@@ -452,3 +400,5 @@ else:
             converted_price = convert_currency(predicted_price, rates, currency)
             if converted_price is not None:
                 print(f"{currency}: {converted_price:.2f}")
+
+

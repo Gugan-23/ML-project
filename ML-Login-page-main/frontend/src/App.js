@@ -11,6 +11,7 @@ const App = () => {
             <Route path="/" element={<Navigate to="/login" />} /> {/* Redirect to login */}
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            
             <Route path="/home/*" element={<Home />} /> {/* Note the wildcard * to handle nested routes */}
         </Routes>
     );

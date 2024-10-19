@@ -1,90 +1,54 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './Notworking.css'; // Adjust the path if necessary
+import React, { useState, useEffect } from 'react';
+import './Notworking.css';
 
 const Notworking = () => {
-    const videoRef = useRef(null);
-    const canvasRef = useRef(null);
-    const [isCameraOn, setIsCameraOn] = useState(false);
-    const [photoUrl, setPhotoUrl] = useState(null);
+    const [capturedImage, setCapturedImage] = useState(null);
+    const [detectionDetails, setDetectionDetails] = useState(null);
+    const [classificationResult, setClassificationResult] = useState('No phone detected.');
 
-    useEffect(() => {
-        const startCamera = async () => {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                if (videoRef.current) {
-                    videoRef.current.srcObject = stream;
+    // Function to capture the image
+    const handleCapture = () => {
+        fetch('/capture_image', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.image_url) {
+                    setCapturedImage(data.image_url);
                 }
-            } catch (error) {
-                console.error('Error accessing the camera:', error);
-            }
-        };
-
-        if (isCameraOn) {
-            startCamera();
-        } else {
-            stopCamera();
-        }
-
-        return () => {
-            stopCamera();
-        };
-    }, [isCameraOn]);
-
-    const stopCamera = () => {
-        const videoElement = videoRef.current;
-        if (videoElement && videoElement.srcObject) {
-            const tracks = videoElement.srcObject.getTracks();
-            tracks.forEach(track => track.stop());
-            videoElement.srcObject = null;
-        }
-    };
-
-    const handleCameraOn = () => {
-        setIsCameraOn(true);
-    };
-
-    const handleCameraOff = () => {
-        setIsCameraOn(false);
-    };
-
-    const takePhoto = () => {
-        const canvas = canvasRef.current;
-        const video = videoRef.current;
-        if (canvas && video) {
-            const context = canvas.getContext('2d');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            const dataUrl = canvas.toDataURL('image/png');
-            setPhotoUrl(dataUrl);
-        }
+                setDetectionDetails(data.details);
+                setClassificationResult(data.details.classification || 'No phone detected.');
+            })
+            .catch(error => console.error('Error:', error));
     };
 
     return (
-        <div>
-            <p>Hello</p>
-            <video ref={videoRef} autoPlay playsInline style={{ width: '100%', height: 'auto' }} />
-            <div>
-                <button onClick={handleCameraOn} disabled={isCameraOn}>
-                    Camera On
-                </button>
-                <button onClick={handleCameraOff} disabled={!isCameraOn}>
-                    Camera Off
-                </button>
-                <button onClick={takePhoto} disabled={!isCameraOn}>
-                    Take Photo
-                </button>
+        <div className="notworking-container">
+            <h1>Object Detection and Classification</h1>
+
+            {/* Video feed */}
+            <div className="video-container">
+                <img src="/video_feed" alt="Video Feed" className="video-feed" />
             </div>
-            <canvas ref={canvasRef} style={{ display: 'none' }} />
-            {photoUrl && (
-                <div>
-                    <h3>Captured Photo:</h3>
-                    <img src={photoUrl} alt="Captured" style={{ width: '100%', height: 'auto' }} />
-                    <a href={photoUrl} download="photo.png">
-                        Download Photo
-                    </a>
-                </div>
-            )}
+
+            {/* Button to capture image */}
+            <button onClick={handleCapture} className="capture-button">Capture Image</button>
+
+            {/* Display captured image */}
+            <div className="captured-image-container">
+                <h3>Captured Image:</h3>
+                {capturedImage && <img src={capturedImage} alt="Captured" className="captured-image" />}
+            </div>
+
+            {/* Display detection details */}
+            <div className="details-container">
+                <h3>Detection Details:</h3>
+                {detectionDetails && <pre>{JSON.stringify(detectionDetails, null, 2)}</pre>}
+            </div>
+
+            {/* Display classification results */}
+            <div className="classification-container">
+                <h3>Classification Results:</h3>
+                <p>{classificationResult}</p>
+            </div>
         </div>
     );
 };

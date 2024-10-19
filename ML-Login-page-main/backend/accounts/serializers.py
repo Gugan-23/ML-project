@@ -36,3 +36,10 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+from rest_framework import serializers
+from .models import MyUser
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MyUser
+        fields = ['id', 'username', 'email', 'phone_number']  # Include fields to be displayed

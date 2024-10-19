@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+</head>
+<body>
+    <h1>Enter Product Specifications</h1>
+    <form action="/submit" method="POST">
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand" required><br><br>
+        
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="display_size">Display Size:</label>
+        <input type="number" id="display_size" name="display_size" required><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

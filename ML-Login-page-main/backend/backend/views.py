@@ -6,6 +6,30 @@ from django.conf import settings
 import datetime
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from django.contrib.auth.models import User
+
+
+# backend/views.py
+# backend/views.py
+# backend/views.py
+from django.http import JsonResponse
+from django.contrib.auth import get_user_model
+
+def user_list(request):
+    User = get_user_model()  # Retrieve the custom user model
+    users = User.objects.all()  # Retrieve all user instances
+
+    # Create a list of user data
+    user_data = []
+    for user in users:
+        user_data.append({
+            'name': user.username,
+            'email': user.email,
+            
+        })
+
+    return JsonResponse(user_data, safe=False)  # Return the user data as JSON
 
 @csrf_exempt
 def upload_appliance(request):

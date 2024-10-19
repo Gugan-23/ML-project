@@ -40,8 +40,11 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'accounts',
+    #'userview',
     'rest_framework.authtoken',  # This enables token-based authentication
 ]
+# settings.py
+AUTH_USER_MODEL = 'accounts.MyUser'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -94,6 +97,7 @@ DATABASES = {
         'NAME': BASE_DIR / "db.sqlite3",  # Adjust if necessary
     }
 }
+
 
 
 REST_FRAMEWORK = {

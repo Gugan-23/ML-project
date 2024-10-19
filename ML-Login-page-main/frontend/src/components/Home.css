@@ -11,6 +11,7 @@ body {
 /* Container for the entire home component */
 .home-container {
     display: flex;
+    flex-direction: row; /* Ensure horizontal layout on larger screens */
     height: 100vh; /* Full height */
 }
 
@@ -21,6 +22,7 @@ body {
     color: #ecf0f1; /* Light text color */
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: width 0.3s; /* Smooth transition for width changes */
 }
 
 .sidebar h3 {
@@ -29,13 +31,16 @@ body {
     text-align: center;
 }
 
+/* Sidebar list styles */
 .sidebar ul {
     list-style: none; /* Remove bullets */
     padding: 0;
 }
 
+/* Default vertical layout for sidebar items */
 .sidebar li {
     margin: 15px 0; /* Space between items */
+    text-align: center; /* Center text for vertical layout */
 }
 
 .sidebar li a {
@@ -56,7 +61,7 @@ body {
     flex: 1; /* Take remaining space */
     padding: 20px;
     overflow-y: auto; /* Scroll if content overflows */
-    background-color: #ecf0f1; /* Light background */
+    background-color: #2b8aa1; /* Light background */
 }
 
 /* Heading styles */
@@ -74,6 +79,22 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
+/* Product card styles */
+.product-card {
+    display: flex;
+    flex-direction: column; /* Vertical layout */
+    align-items: center; /* Center items */
+    padding: 10px;
+    border: 1px solid #2b8aa1; /* Border color */
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Light gray background */
+    transition: transform 0.3s; /* Smooth scale effect */
+}
+
+.product-card:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .home-container {
@@ -83,9 +104,27 @@ body {
     .sidebar {
         width: 100%; /* Full width */
         box-shadow: none; /* Remove shadow */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .sidebar ul {
+        display: flex; /* Use flexbox for horizontal layout */
+        flex-direction: row; /* Align items horizontally */
+        justify-content: space-around; /* Space between items */
+        padding: 0; /* Remove padding */
+    }
+
+    .sidebar li {
+        margin: 0; /* Reset margin for horizontal layout */
+        flex: 1; /* Equal width for horizontal layout */
+        text-align: center; /* Center text for horizontal layout */
     }
 
     .content {
         padding: 10px; /* Less padding */
+    }
+
+    .product-card {
+        width: 90%; /* Full width for product cards */
     }
 }
