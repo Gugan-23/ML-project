@@ -593,7 +593,7 @@ def predict():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-'''from flask import Flask, render_template, Response, request, jsonify
+from flask import Flask, render_template, Response, request, jsonify
 yolo_model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
 target_classes = ['cell phone', 'laptop']
 
@@ -696,7 +696,7 @@ def capture_image():
         cv2.imwrite(filename, latest_frame)
         return jsonify({'message': 'Image captured successfully!', 'image_url': filename, 'details': detection_details})
     else:
-        return jsonify({'message': 'No frame available to capture!'})'''
+        return jsonify({'message': 'No frame available to capture!'})
 
 if __name__ == '__main__':
     app.run(debug=True)
